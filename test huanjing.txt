@@ -1,0 +1,107 @@
+### URL无法访问！ ###
+# 移动端测试环境
+########wap##########
+10.161.144.28 m.yhd.com
+10.161.144.28 wechat.yhd.com
+10.161.144.88  interface.m.yhd.com  mobile-interface1.int.yihaodian.com
+10.161.144.89 mapi.yhd.com
+#192.168.128.239 weibo.yihaodian.com  passport.yhd.com
+10.161.144.154  d6.yihaodianimg.com d7.yihaodianimg.com d8.yihaodianimg.com d9.yihaodianimg.com  d10.yihaodianimg.com
+
+######maps######
+10.161.144.154 t.yhd.com
+#10.161.144.154 m.yhd.com
+192.168.128.204 mxc.yhd.com
+10.161.144.65  v2.yihaodianimg.com
+####货币基金#####
+192.168.128.74 f.yhd.com
+
+192.168.128.74  backend-scf-service-main.yihaodian.com
+#192.168.128.76 backend.yihaodian.com
+10.161.144.72 8.yhd.com
+
+###########首页############
+192.168.128.92 www.yhd.com 1mall.yhd.com
+192.168.128.94 cms.yhd.com cms-home.yhd.com
+###########详情页############
+192.168.128.156 item.yhd.com item-home.yhd.com item-home.yhd.com   item.yihaodian.com  item.1mall.com item-home.1mall.com
+##########前台##########
+192.168.128.98 my.yhd.com
+192.168.128.93 passport.yhd.com
+192.168.128.66 baseinfoidc.yihaodian.com
+192.168.128.210 backend-baseinfoidc.yiahoidan.com
+########edm##########
+192.168.128.138 edm-service.yihaodian.com
+192.168.128.236 edm-backend.yihaodian.com
+192.168.128.138  edm.yhd.com
+192.168.128.138 edm.yihaodian.com edm.yhd.com
+
+########ops#########
+192.168.128.193 ops.i.yihaodian.com gps.i.yihaodian.com
+##########tracker##########
+192.168.128.206 tracker.yhd.com tracker.yihaodian.com
+######pay#######
+192.168.110.116 netpay.yihaodian.com
+192.168.110.116 interface.int.yihaodian.com
+
+192.168.128.138 crm.yihaodian.com
+##############验证码#####
+192.168.128.63 captcha.yihaodian.com captcha.yhd.com
+192.168.128.94 t.yhd.com
+192.168.128.25 busystock.i.yihaodian.com gps.yihaodian.com gps.yhd.com
+
+#########购物车页、结算页########
+192.168.128.92 cart.yhd.com buy.yhd.com
+10.161.152.165 cart.m.yhd.com
+
+############PC广告后台#########
+10.161.144.154 adbackend.yihaodian.com
+192.168.128.144 openapi.int.yihaodian.com p4p.yihaodian.com p4p.1mall.com
+#192.168.128.76  backend.yihaodian.com product-backend.yihaodian.com
+192.168.128.210 portal-test.yihaodian.com.cn
+192.168.128.210 portal-test.niuhai.cn
+192.168.128.219 d1.yihaodian.com d13.yihaodianimg.com d11.yihaodianimg.com
+192.168.128.219 d12.yihaodianimg.com
+192.168.128.219 upload.yihaodian.com backend-upload.yihaodian.com
+10.161.144.61 d6.yihaodianimg.com d7.yihaodianimg.com d8.yihaodianimg.com d9.yihaodianimg.com
+10.161.144.64 v1.yihaodianimg.com
+10.161.144.61 d1.111.com.cn
+192.168.128.25 busystock.i.yihaodian.com
+192.168.128.25 gss.i.yihaodian.com busystock.i.1mall.com
+192.168.128.37 config-centre.int.yihaodian.com
+10.161.144.24 productcenter-backend.yihaodian.com
+
+########pc backend#########
+192.168.128.229 backend-finance-invoice.yihaodian.com
+192.168.128.187 backend-finance-accountspayable.yihaodian.com  #tomcat1451
+192.168.130.138  backend-cs.yihaodian.com
+192.168.128.76 product-backend.yihaodian.com
+192.168.128.172 backend-service-dispatcher.yihaodian.com #tomcat1411
+192.168.128.172  backend-data-capture.yihaodian.com#tomcat1412
+192.168.128.172 backend-finance-service.yihaodian.com #tomcat1413
+192.168.128.229 backend-finance-ar.yihaodian.com#tomcat1611
+
+#########抵用券##########
+10.161.144.154 coupon.yhd.com
+
+#########我的客服##########
+192.168.128.46 cs-online.yhd.com
+
+#######mobile-backend-permission###############
+192.168.128.233  backend.yihaodian.com static.yhd.com  static.yihaodian.com image.yihaodianimg.com
+
+#订单模拟
+192.168.128.67 gos.int.yihaodian.com
+#####运费模板
+10.161.144.154 backend-distribution.yihaodian.com
+####小雷随单赠
+10.161.144.154 apps.yhd.com
+status=FAILED
+####商品生命周期管理
+10.161.144.154 product-backend-web.yihaodian.com
+
+####查询雷购业务模式
+192.168.130.141 merchant.yihaodian.com
+
+###英文app
+10.161.144.154 mgalaxy.yhd.com

@@ -1,0 +1,70 @@
+1.git的使用:https://git-scm.com/book/zh/v2  
+2.使用乌龟git的时候 需要配置git的ssh  
+调整tortoisegit的settings中的network选项，将tortoisegitplink.exe改成git安装目录的下bin\ssh.exe (必须之前已经gitbush生成了ssh)
+这样配了之后不要直接push  会产生错误git did not exit cleanly (exit code 1)  这是先用命令行git pull之后,再乌龟里面pull就好了
+2.fiddler的初始配置
+option中connection勾选allowromote
+fiddler 抓包 tunnel to 443 出现这个 ,在浏览器中输入 http://ip:8888  打开之后会有个download 证书 下载安装
+
+fiddler抓包HTTPS请求
+
+跟着教程来，保证100%成功抓HTTPS包
+教程开始
+
+安装fiddler
+
+首先准备一台可以上网的windos电脑，准备一部智能手机。 
+fiddler抓包工具：下载地址（ 自行百度一搜一大片）。安装，打开如果遇到.net framework错误，下载一个高本版的.net 即可。好了教程已经完成了一大半。 
+打开fiddler随便打开下浏览器。发现已经可以抓包，但想要抓手机https还需要做一些设置。 
+fiddler打开既视感
+
+配置fiddler
+
+打开fiddler配置Tools –> Fiddler Options. 
+打开fiddler配置
+打开HTTPS配置项，勾选“CaptureHTTPS CONNECTs”，同时勾选“Decrypt HTTPS traffic”，弹出的对话框选择是（这里是按照fiddler自己的证书）如果跟我一样手机跟电脑是用wifi进行链接的话还需要选择“…fromremote clients only”。如果需要监听不可信的证书的HTTPS请求的话，需要勾选“Ignore servercertificate errors”。 
+这里写图片描述
+打开Conections配置项， 这里可以修改Fiddler代理端口号。勾选“Allow remote computersto connect。提示需要重启fiddler。 
+这里写图片描述
+哈哈，高端的来了，需要写点代码。这里是为了可以抓客户端使用httpURLConnection的包。 
+Ruler –>CustomizeRules 
+在函数OnBeforeResponse里面添加下面代码：
+if (oSession.oRequest["User-Agent"].indexOf("Android") > -1 && oSession.HTTPMethodIs("CONNECT")) {
+            oSession.oResponse.headers["Connection"] = "Keep-Alive";
+}
+
+添加后代码为：
+
+static function OnBeforeResponse(oSession: Session) {
+        if (m_Hide304s && oSession.responseCode == 304) {
+            oSession["ui-hide"] = "true";
+        }
+        if (oSession.oRequest["User-Agent"].indexOf("Android") > -1 && oSession.HTTPMethodIs("CONNECT")) {
+            oSession.oResponse.headers["Connection"] = "Keep-Alive";
+        }
+    }
+
+不要忘记重启fiddler！！！
+
+配置手机
+
+保证手机跟pc是在同一个网段下。 
+配置手机连接的wifi，可能每个手机打开wifi配置的方式都不太一样，仔细研究下，选择已经连接的网络，打开修改网络窗口。显示高级属性，配置网络代理–>手动 代理服务器主机名：填写pc机的IP地址即可例如：192.168.0.4，代理服务器端口号：fiddler的代理端口号，如果没有修改就是8888。 
+关键步骤哈： 
+下载安装fiddler的证书 
+这里写图片描述 
+在手机浏览器打开 代理服务器：端口号 例如上面填写的就是192.168.0.4:8888，点击页面中的“FiddlerRootcertificate”链接，在弹出的对话框中随便设置一个名称确定即可。
+
+抓包截图
+
+测试机上没装多少软件，打开百度钱包来试试 
+这里写图片描述
+
+好了。大功告成！
+
+让我们想想
+
+通过fiddler可以抓包，是不是说https就是不安全的了呢，毕竟所有的请求对我们来说都是透明的呢。其实刚才的过程很重要的一点就是我们下载并且安装了fiddler的根证书，对于pc端来说就是配置fiddler https选项时弹出的对话框，对于手机来说就是我们去 pcip地址:fiddler代理端口这个地址下载证书的过程。 
+而对https的安全来说，https安全的前提就是可信的根证书！！！！ 
+而，之前的操作无疑是在我们系统里面安装了不可信的根证书。使得fiddler对我们的通信造成了中间人攻击！。 
+简单的说就是我们与服务器进行通信，会先获取服务器的证书，进行校验校验过程是用本地的可信根证书进行校验，而装入fiddler的根证书后，fiddler可以伪造证书，获取我们与服务器通信的秘钥，进行破解我们的通信。所以对我们我们系统来说安装证书是一个多么危险的操作！
