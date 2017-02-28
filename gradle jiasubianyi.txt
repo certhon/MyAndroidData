@@ -6,3 +6,4 @@ org.gradle.parallel=true
 org.gradle.jvmargs=-Xmx1024m
 
 http://www.cnblogs.com/kelina2mark/p/6132994.html
+JRebel for Android
