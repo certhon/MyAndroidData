@@ -1,0 +1,5 @@
+public void loadCate2(long rootCateId, final Callback<List<CategoryVo>> callback) {     Request request = AppContext.newRequest();     HashMap<String, Object> param = new HashMap<String, Object>();     param.put("level", 2L);     param.put("rootCateId", rootCateId);     request.applyParam(PATH2, param, new TypeToken<ResultVO<List<CategoryVo>>>() {     }.getType());     request.setCacheTime(60 * 60 * 1000);// 缓存1小时     request.setCallBack(new Handler.Callback() {          @Override         public boolean handleMessage(Message msg) {             ResultVO<List<CategoryVo>> result = (ResultVO<List<CategoryVo>>) msg.obj;             if (result != null && ResultVO.RTN_OK.equals(result.getRtn_code())                    && result.getData() != null && !result.getData().isEmpty()) {                 callback.onResult(true, result.getData());             } else {                 callback.onResult(false, null);             }             return true;         }     });     request.execute();
+
+
+interface Callback<T> {     void onResult(boolean available, T data); }
+
