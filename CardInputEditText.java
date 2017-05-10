@@ -87,26 +87,12 @@ public class CardInputEditText extends EditText {
   
         @Override  
         public void afterTextChanged(Editable s) {
-            String memberCard = s.toString();
-            if (20 == memberCard.length()) {
-                onCardCompleteInputListener.onCardCompleteInput(true);
-            } else {
-                onCardCompleteInputListener.onCardCompleteInput(false);
-            }
-        }  
+           
     };  
   
     public String getTextWithoutSpace(){  
         return super.getText().toString().replace(" ","");  
     }
 
-    public void setOnCardCompleteInputListener(OnCardCompleteInputListener onCardCompleteInputListener){
-        if (onCardCompleteInputListener != null) {
-
-            this.onCardCompleteInputListener = onCardCompleteInputListener;
-        }
-    }
-    public interface OnCardCompleteInputListener{
-      void    onCardCompleteInput(boolean hasCompleted);
-    }
+    
 }  
